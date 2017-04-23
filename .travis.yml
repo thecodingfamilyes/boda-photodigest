@@ -6,7 +6,7 @@ env:
     - AWS_REGION=eu-west-1
     - SLS_DEBUG=true
 
-#before_install:
-#  - npm i -g serverless serverless-webpack serverles-mocha-plugin serverless-plugin-dotenv
+before_install:
+  - npm i -g serverless serverless-webpack serverles-mocha-plugin serverless-plugin-dotenv
 
-script: npm test
+script: ./bin/deploy.sh
