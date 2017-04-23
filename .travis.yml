@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '6.10'
+env:
+  global:
+    - AWS_REGION=eu-west-1
+    - SLS_DEBUG=true
+before_install:
+  - npm i -g serverless@1.0.0-beta.1
+
+script: ./bin/deploy.sh
