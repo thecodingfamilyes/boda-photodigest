@@ -6,7 +6,7 @@ npm test
 set -e
 BRANCH=${TRAVIS_BRANCH:-$(git rev-parse --abbrev-ref HEAD)}
 if [[ $BRANCH == 'master' ]]; then
-  STAGE="prod"
+  STAGE="production"
 elif [[ $BRANCH == 'develop' ]]; then
   STAGE="dev"
 fi

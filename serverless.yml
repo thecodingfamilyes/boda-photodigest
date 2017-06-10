@@ -1,4 +1,4 @@
-service: boda-photodigest
+service: boda-photo-scrapper
 provider:
   name: aws
   runtime: nodejs6.10
@@ -20,7 +20,7 @@ functions:
         TWITTER_APP_ACT: ${env:TWITTER_APP_ACT, file(env.yml):TWITTER_APP_ACT}
         TWITTER_APP_ACT_SECRET: ${env:TWITTER_APP_ACT_SECRET, file(env.yml):TWITTER_APP_ACT_SECRET}
         HASHTAG: ${env:HASHTAG, file(env.yml):HASHTAG}
-        S3_BUCKET: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}
+        S3_BUCKET: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage}
     events:
         - schedule:
             rate: rate(60 minutes)
@@ -30,7 +30,7 @@ resources:
     S3Bucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: boda-photodigest-bucket
+        BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage}
 plugins:
   - serverless-mocha-plugin
   - serverless-webpack
