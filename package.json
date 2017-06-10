@@ -18,7 +18,6 @@
   "homepage": "https://github.com/mineros/boda-photodigest#readme",
   "devDependencies": {
     "aws-sdk": "^2.45.0",
-    "aws-sdk-mock": "^1.7.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
