@@ -11,8 +11,7 @@ provider:
         - "s3:*"
       Resource: "*"
 functions:
-  scrap:
-    name: scrap
+  scrap:    
     handler: index.Scrap
     environment:
         TWITTER_APP_CONSUMER_KEY: ${env:TWITTER_APP_CONSUMER_KEY, file(env.yml):TWITTER_APP_CONSUMER_KEY}
