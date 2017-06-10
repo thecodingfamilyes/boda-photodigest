@@ -15,12 +15,12 @@ functions:
     name: scrap
     handler: index.Scrap
     environment:
-        TWITTER_APP_CONSUMER_KEY: ${file(env.yml):TWITTER_APP_CONSUMER_KEY}
-        TWITTER_APP_SECRET: ${file(env.yml):TWITTER_APP_SECRET}
-        TWITTER_APP_ACT: ${file(env.yml):TWITTER_APP_ACT}
-        TWITTER_APP_ACT_SECRET: ${file(env.yml):TWITTER_APP_ACT_SECRET}
-        HASHTAG: ${file(env.yml):HASHTAG}
-        S3_BUCKET: ${file(env.yml):S3_BUCKET}
+        TWITTER_APP_CONSUMER_KEY: ${env:TWITTER_APP_CONSUMER_KEY, file(env.yml):TWITTER_APP_CONSUMER_KEY}
+        TWITTER_APP_SECRET: ${env:TWITTER_APP_SECRET, file(env.yml):TWITTER_APP_SECRET}
+        TWITTER_APP_ACT: ${env:TWITTER_APP_ACT, file(env.yml):TWITTER_APP_ACT}
+        TWITTER_APP_ACT_SECRET: ${env:TWITTER_APP_ACT_SECRET, file(env.yml):TWITTER_APP_ACT_SECRET}
+        HASHTAG: ${env:HASHTAG, file(env.yml):HASHTAG}
+        S3_BUCKET: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}
     events:
         - schedule:
             rate: rate(60 minutes)
