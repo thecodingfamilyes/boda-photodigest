@@ -19,7 +19,7 @@ functions:
         TWITTER_APP_ACT: ${env:TWITTER_APP_ACT, file(env.yml):TWITTER_APP_ACT}
         TWITTER_APP_ACT_SECRET: ${env:TWITTER_APP_ACT_SECRET, file(env.yml):TWITTER_APP_ACT_SECRET}
         HASHTAG: ${env:HASHTAG, file(env.yml):HASHTAG}
-        S3_BUCKET: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
+        S3_BUCKET: boda-photodigest-bucket-production
     events:
         - schedule:
             rate: rate(60 minutes)
