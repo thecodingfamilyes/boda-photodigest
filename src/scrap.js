@@ -43,7 +43,6 @@ export default async function Scrap(event, context, callback) {
             let instaposts = await Inst.searchBy('hashtag', process.env.HASHTAG);
 
             if (instaposts.entry_data.TagPage.length) {
-
                 instaposts.entry_data.TagPage.forEach((tp) => {
                     if (tp.tag.media.nodes && tp.tag.media.nodes.length) {
                         console.log(tp.tag.media.nodes.length + ' instagram posts found');

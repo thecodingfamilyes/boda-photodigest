@@ -11,7 +11,7 @@ provider:
         - "s3:*"
       Resource: "*"
 functions:
-  scrap:    
+  scrap:
     handler: index.Scrap
     environment:
         TWITTER_APP_CONSUMER_KEY: ${env:TWITTER_APP_CONSUMER_KEY, file(env.yml):TWITTER_APP_CONSUMER_KEY}
@@ -19,7 +19,7 @@ functions:
         TWITTER_APP_ACT: ${env:TWITTER_APP_ACT, file(env.yml):TWITTER_APP_ACT}
         TWITTER_APP_ACT_SECRET: ${env:TWITTER_APP_ACT_SECRET, file(env.yml):TWITTER_APP_ACT_SECRET}
         HASHTAG: ${env:HASHTAG, file(env.yml):HASHTAG}
-        S3_BUCKET: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage}
+        S3_BUCKET: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
     events:
         - schedule:
             rate: rate(60 minutes)
@@ -29,7 +29,7 @@ resources:
     S3Bucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage}
+        BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
 plugins:
   - serverless-mocha-plugin
   - serverless-webpack
