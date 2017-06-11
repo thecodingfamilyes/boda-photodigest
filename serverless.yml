@@ -27,9 +27,9 @@ functions:
 resources:
   Resources:
     S3Bucket:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
+        Type: AWS::S3::Bucket
+        Properties:
+            BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
 plugins:
   - serverless-mocha-plugin
   - serverless-webpack
