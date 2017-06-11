@@ -23,7 +23,7 @@ functions:
     events:
         - schedule:
             rate: rate(60 minutes)
-            enabled: false
+            enabled: true
 resources:
   Resources:
     S3Bucket:
