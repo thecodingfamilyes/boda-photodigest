@@ -24,12 +24,12 @@ functions:
         - schedule:
             rate: rate(60 minutes)
             enabled: true
-resources:
-  Resources:
-    S3Bucket:
-        Type: AWS::S3::Bucket
-        Properties:
-            BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
+#resources:
+#  Resources:
+#    S3Bucket:
+#        Type: AWS::S3::Bucket
+#        Properties:
+#            BucketName: ${env:S3_BUCKET, file(env.yml):S3_BUCKET}-${opt:stage, "dev"}
 plugins:
   - serverless-mocha-plugin
   - serverless-webpack
